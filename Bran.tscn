@@ -9,8 +9,6 @@ radius = 13.0
 
 [node name="Node2D" type="Node2D" unique_id=1577336343]
 script = ExtResource("1_dr4qt")
-width = 20
-height = 12
 
 [node name="Player" type="CharacterBody2D" parent="." unique_id=674870443]
 visibility_layer = 2

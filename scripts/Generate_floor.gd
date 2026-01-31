@@ -5,7 +5,7 @@ extends Node2D
 @export var tile_size:int = 32
 @export var door_size:int = 2
 
-@export var from_side = [1,2,3,4] # 1-top,2-left,3-right,4-bottom
+@export var from_side = [1,2,3,4] 
 var origin_side = 0
 var ini_pose
 @onready var floor_scene = preload("res://prefabs/floor.tscn")
@@ -14,19 +14,11 @@ var ini_pose
 @onready var zone_scene  = preload("res://prefabs/action_zone.tscn")
 
 func _ready():
-	print(position)
 	generate_floor(position)
 	_generate_walls(position)
-	var area_scene = preload("res://prefabs/action_zone.tscn")
-	var area_instance = area_scene.instantiate()
-	area_instance.position=position
-	add_child(area_instance)
 
-
-# -----------------------
 func generate_floor(start_pos:Vector2):
 	ini_pose=start_pos
-	print(start_pos)
 	for i in range(height):
 		for j in range(width):
 			var f = floor_scene.instantiate()
@@ -34,7 +26,6 @@ func generate_floor(start_pos:Vector2):
 			add_child(f)
 
 func _generate_walls(start_pos:Vector2=Vector2.ZERO):
-	# Elegir aleatoriamente 1 a 4 puertas
 	var doors = from_side.duplicate()
 	doors.shuffle()
 	var count_doors = randi_range(1, 4)
@@ -42,16 +33,30 @@ func _generate_walls(start_pos:Vector2=Vector2.ZERO):
 	while count_doors==1 and doors.has(origin_side):
 		count_doors = randi_range(1, 4)
 		doors = doors.slice(0, count_doors)
+	generate_trigger(doors)
 	if origin_side != 0 and not doors.has(origin_side):
 		doors.append(origin_side)
 	for side in [1,2,3,4]:
 		_build_wall(start_pos,side, doors.has(side))
+	
 
+func generate_trigger(doors):
+	var area_scene = preload("res://prefabs/action_zone.tscn")
+
+	var area_instance = area_scene.instantiate()
+	area_instance.width=width
+	area_instance.height=height
+	area_instance.tile_size=tile_size
+	area_instance.door_size = door_size
+	
+	area_instance.position=Vector2(ini_pose.x+((width/2)*tile_size),ini_pose.y+((height/2)*tile_size))
+	area_instance.doors=doors
+	area_instance.start_pos=ini_pose
+	get_tree().current_scene.add_child(area_instance)
 # -----------------------
 func _build_wall(start_pos,side:int, has_door:bool):
 	var wall_len = 0
 	var num_door=0
-	# Determinar tamaño y posición inicial según lado
 	match side:
 		1: # top
 			wall_len = width
@@ -65,7 +70,6 @@ func _build_wall(start_pos,side:int, has_door:bool):
 		4: # bottom
 			wall_len = width
 			start_pos = Vector2(0,height)
-	# posición de la puerta centrada
 	var door_start = int((wall_len - door_size)/2) if has_door else -1
 	# crear tiles de pared
 	for i in range(wall_len):
@@ -109,17 +113,6 @@ func _build_pasillo(init_poition:Vector2,side:int,door:int):
 			3: pos.x += i * tile_size
 			4: pos.y += i * tile_size
 		if(door==1):	
-			if(i==4):		
-				zone.position = pos
-			if(i==7):
-				var next_pos
-				match side:
-					1: next_pos = Vector2(ini_pose.x,ini_pose.y-(8+height)*tile_size)   # siguiente sala arriba
-					2: next_pos = Vector2(ini_pose.x-(8+width)*tile_size,ini_pose.y)   # izquierda
-					3: next_pos = Vector2(ini_pose.x+(8+width)*tile_size,ini_pose.y)    # derecha
-					4: next_pos = Vector2(ini_pose.x,ini_pose.y+(8+height)*tile_size) # abajo
-					# abajo
-
 			var wall_pos = pos
 			if side in [1,4]: # top o bottom → horizontal
 				wall_pos.x -= tile_size
@@ -140,7 +133,5 @@ func _build_pasillo(init_poition:Vector2,side:int,door:int):
 			
 		f.position = pos
 		add_child(f)
-func test():
-	pass
 	
 	
