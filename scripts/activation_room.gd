@@ -26,7 +26,7 @@ func _process(delta):
 func _close_entry_door():
 	print(entry_door_pos)
 	var block = block_scene.instantiate()
-	block.position = entry_door_pos
+	block.global_position = entry_door_pos
 	print("block:",block.position)
 	get_tree().current_scene.add_child(block)
 

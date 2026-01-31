@@ -9,7 +9,7 @@ size = Vector2(32, 32)
 z_index = 7
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=802366446]
-z_index = 7
+z_index = 100
 texture = ExtResource("1_sum4q")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1570562805]
