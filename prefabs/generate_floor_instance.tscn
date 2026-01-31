@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://cup0vpqn5dl30"]
+
+[ext_resource type="Script" uid="uid://dvgcy5ris5eia" path="res://scripts/Generate_floor.gd" id="1_0mf6o"]
+
+[node name="generate_floor" type="Node2D" unique_id=1367824710]
+script = ExtResource("1_0mf6o")
+width = 14
+height = 12
