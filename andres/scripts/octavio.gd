@@ -11,6 +11,7 @@ var max_speed := 300.0
 @onready var attack_shape : CollisionShape2D = $Area2D/CollisionShape2D2
 @onready var colision: CollisionShape2D = $Area2D/CollisionShape2D2
 @onready var hud = $"../HUD"
+@onready var audio_player: AudioStreamPlayer2D = $AudioStreamPlayer2D
 
 
 var is_attacking := false
@@ -66,6 +67,7 @@ func take_damage(amount: int) -> void:
 	invulnerable = true
 	animation_locked = true
 	current_health -= amount
+	play_sound("res://audios/male_hurt7-48124.mp3")
 	if hud:
 		hud.update_life(current_health, max_health)
 	hitbox.disabled = true
@@ -81,17 +83,26 @@ func take_damage(amount: int) -> void:
 		die()
 
 
-		
+var dying = true
+
 func die() -> void:
 	print("Octavio murió")
+
 	animation_player.play("die")
+	animation_player.animation_finished.connect(_on_die_animation_finished)
 	set_physics_process(false)
 	get_tree().change_scene_to_file("res://andres/escenas/control.tscn")
 
+func _on_die_animation_finished(anim_name: String) -> void:
+	if anim_name == "die" and dying:
+		dying = false
+		set_physics_process(false)
+		get_tree().change_scene_to_file("res://andres/escenas/control.tscn")
 	
 
 func add_coin() -> void:
 	coins +=coin_multiplier
+	play_sound("res://audios/money-pickup-2-89563.mp3")
 	if hud:
 		hud.update_coins(coins)
 	print(max_health)
@@ -99,6 +110,7 @@ func add_coin() -> void:
 	
 func heal(amount: int) -> void:
 	current_health+= amount
+	play_sound("res://audios/coin-pickup-98269.mp3")
 	if current_health > max_health:
 		current_health = max_health
 	if hud:
@@ -107,11 +119,12 @@ func heal(amount: int) -> void:
 	
 func set_coin_multiplier(multiplier: int) -> void:
 	coin_multiplier = multiplier
+	play_sound("res://audios/retro-coin-4-236671.mp3")
 	print("Multiplicador de monedas x", coin_multiplier)
 	
 func increase_max_health(amount: int, heal_full := true) -> void:
 	max_health += amount
-	
+	play_sound("res://audios/retro-coin-4-236671.mp3")
 	if heal_full:
 		current_health = max_health
 	else:
@@ -122,6 +135,7 @@ func increase_max_health(amount: int, heal_full := true) -> void:
 	print("Vida actual:", current_health)
 
 func increase_speed(new_speed: float) -> void:
+	play_sound("res://audios/retro-coin-4-236671.mp3")
 	speed = min(new_speed, max_speed)
 	print("Velocidad actual:", speed)
 
@@ -156,7 +170,7 @@ func attack():
 
 	# Reproducir animación de ataque
 	animation_player.play("attack")
-
+	play_sound("res://audios/bush-cut-103503.mp3")
 	# Activar hitbox de ataque para detectar enemigos
 	attack_area.monitoring = true
 	attack_area.set_deferred("monitoring", true)
@@ -168,8 +182,9 @@ func attack():
 	var cuerpos = attack_area.get_overlapping_bodies()
 	print("Cuerpos detectados en área de ataque:", cuerpos.size())
 	for cuerpo in cuerpos:
-		print("Detectado cuerpo:", cuerpo.name)
-		if cuerpo.name=="Diavlo" or cuerpo.name=="Diavlo2":
+		if cuerpo.has_method("take_damage"):
+			print("Detectado cuerpo:", cuerpo.name)
+		if cuerpo is Lallorona or Diavlo or BolaDeFuego:
 			print("Haciendo daño a:", cuerpo.name)
 			cuerpo.take_damage(190)
 
@@ -191,3 +206,11 @@ func attack():
 		animation_player.play("correr")
 	else:
 		animation_player.play("idle")
+
+func play_sound(path: String) -> void:
+	var sound = load(path) as AudioStream
+	if sound:
+		audio_player.stream = sound
+		audio_player.play()
+	else:
+		print("No se pudo cargar el sonido:", path)

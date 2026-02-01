@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://lwhcwm3kxsr3"]
 
+[ext_resource type="Script" uid="uid://du7uuwhut7x8t" path="res://andres/escenas/mapa_provisional.gd" id="1_a6pve"]
 [ext_resource type="PackedScene" uid="uid://boswikgqf8g7v" path="res://andres/escenas/provisional.tscn" id="1_ct83g"]
 [ext_resource type="PackedScene" uid="uid://bla7eqw4wy3ik" path="res://andres/escenas/octavio.tscn" id="2_0klxx"]
 [ext_resource type="PackedScene" uid="uid://bmdk3hh27mgkh" path="res://andres/escenas/moneda.tscn" id="3_5pe50"]
@@ -13,11 +14,12 @@
 [ext_resource type="PackedScene" uid="uid://cdg4bcf3hoigd" path="res://andres/escenas/lallorona.tscn" id="11_nkg00"]
 
 [node name="Mapa_provisional" type="Node2D" unique_id=70973057]
+script = ExtResource("1_a6pve")
 
 [node name="Provisional" parent="." unique_id=1514206787 instance=ExtResource("1_ct83g")]
 
 [node name="Octavio" parent="." unique_id=608047473 instance=ExtResource("2_0klxx")]
-visibility_layer = 6
+visibility_layer = 7
 position = Vector2(-560, -368)
 
 [node name="Moneda" parent="." unique_id=1286303940 instance=ExtResource("3_5pe50")]
@@ -134,3 +136,5 @@ scale = Vector2(0.4942898, 0.40814018)
 [node name="Lallorona2" parent="." unique_id=1889368589 instance=ExtResource("11_nkg00")]
 position = Vector2(-15.9999695, -336)
 scale = Vector2(0.4942898, 0.40814018)
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=711167713]
