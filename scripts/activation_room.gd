@@ -16,14 +16,13 @@ func _ready():
 	body_entered.connect(collision_player)
 
 func collision_player(body):
-	if body.name != "Player":
+	if body.name != "Octavio":
 		return
-
 	emit_signal("player_entered")
 	set_deferred("monitoring", false)
 	call_deferred("_generate_next_rooms")
 	queue_free()
-
+	
 
 func _generate_next_rooms():
 	var script_ref = preload("res://scripts/Generate_floor.gd")

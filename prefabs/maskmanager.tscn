@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://dsk68mnyytx6n"]
+
+[ext_resource type="Script" uid="uid://b2ikmfeup71mo" path="res://scripts/MaskManager.gd" id="1_3w6kh"]
+
+[node name="maskmanager" type="Node2D" unique_id=1588730593]
+script = ExtResource("1_3w6kh")

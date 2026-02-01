@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://begrcf0v1c32q"]
 
-[ext_resource type="Script" uid="uid://dkeejf17vmr4" path="res://octavio.gd" id="1_fpana"]
-[ext_resource type="Texture2D" uid="uid://du3go7l2qc3f0" path="res://Assets/octavio.jpg" id="2_nwh8b"]
+[ext_resource type="Script" uid="uid://l2pl2nbi2xpy" path="res://raul/octavio.gd" id="1_cd1mc"]
+[ext_resource type="Texture2D" uid="uid://du3go7l2qc3f0" path="res://raul/Assets/octavio.jpg" id="2_nwh8b"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5vw27"]
 size = Vector2(72, 71)
@@ -9,7 +9,7 @@ size = Vector2(72, 71)
 [node name="Octavio" type="CharacterBody2D" unique_id=2079939825]
 visibility_layer = 6
 position = Vector2(458, 313)
-script = ExtResource("1_fpana")
+script = ExtResource("1_cd1mc")
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1112559102]

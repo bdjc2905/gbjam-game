@@ -95,6 +95,7 @@ _data = {
 
 [node name="Marimonda" type="Area2D" unique_id=1714355134]
 script = ExtResource("1_ldi6o")
+mask_id = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1948798714]
 position = Vector2(-1, 1)

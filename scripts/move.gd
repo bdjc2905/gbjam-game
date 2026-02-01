@@ -4,13 +4,13 @@ extends CharacterBody2D
 func _physics_process(delta):
 	var input_vector = Vector2.ZERO
 
-	if Input.get_action_strength("move_up"):
+	if Input.get_action_strength("arriba"):
 		input_vector.y -= 1
-	if Input.is_action_pressed("move_down"):
+	if Input.is_action_pressed("abajo"):
 		input_vector.y += 1
-	if Input.is_action_pressed("move_left"):
+	if Input.is_action_pressed("izquierda"):
 		input_vector.x -= 1
-	if Input.is_action_pressed("move_right"):
+	if Input.is_action_pressed("derecha"):
 		input_vector.x += 1
 
 	if input_vector != Vector2.ZERO:

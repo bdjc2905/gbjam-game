@@ -135,6 +135,7 @@ _data = {
 
 [node name="mascara_wayuu" type="Area2D" unique_id=1340159851]
 script = ExtResource("1_ytsvs")
+mask_id = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=931109186]
 shape = SubResource("CircleShape2D_lqyt7")

@@ -1,44 +1,28 @@
 [gd_scene format=3 uid="uid://dh6a66jje0g7c"]
 
 [ext_resource type="Script" uid="uid://dvgcy5ris5eia" path="res://scripts/Generate_floor.gd" id="1_dr4qt"]
-[ext_resource type="Script" uid="uid://nxkae0i52s21" path="res://scripts/move.gd" id="3_hq2ce"]
-[ext_resource type="Texture2D" uid="uid://yj3exkqivutd" path="res://sprites/circle.png" id="3_kgf7y"]
 [ext_resource type="PackedScene" uid="uid://cl0virg8kryms" path="res://Biomes/biome.tscn" id="5_63mju"]
+[ext_resource type="PackedScene" path="res://hud.tscn" id="5_minrq"]
+[ext_resource type="PackedScene" uid="uid://bla7eqw4wy3ik" path="res://andres/escenas/octavio.tscn" id="5_qcdg1"]
 [ext_resource type="Script" uid="uid://bp1see4adtmh8" path="res://scripts/GameManager.gd" id="5_v5w56"]
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_hq2ce"]
-radius = 13.0
+[ext_resource type="PackedScene" uid="uid://dsk68mnyytx6n" path="res://prefabs/maskmanager.tscn" id="6_63mju"]
 
 [node name="Node2D" type="Node2D" unique_id=1577336343]
-
-[node name="Player" type="CharacterBody2D" parent="." unique_id=674870443]
-visibility_layer = 2
-z_index = 20
-position = Vector2(40, 40)
-script = ExtResource("3_hq2ce")
-
-[node name="Sprite2D" type="Sprite2D" parent="Player" unique_id=2072969149]
-z_index = 10
-texture = ExtResource("3_kgf7y")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Player" unique_id=546071628]
-z_index = 11
-position = Vector2(0, -1)
-shape = SubResource("CapsuleShape2D_hq2ce")
-
-[node name="Camera2D" type="Camera2D" parent="Player" unique_id=185149003]
-zoom = Vector2(2, 2)
 
 [node name="Node2D" type="Node2D" parent="." unique_id=1395661307]
 script = ExtResource("5_v5w56")
 
-[node name="floor_manager" type="Node2D" parent="." unique_id=1921901522 node_paths=PackedStringArray("biomes")]
+[node name="floor_manager" type="Node2D" parent="." unique_id=1921901522]
 script = ExtResource("1_dr4qt")
-width = 20
-height = 16
-tile_size = null
+width = 6
+height = 6
 door_size = 6
 pasillo_size = 4
-biomes = [NodePath("../Biome")]
 
 [node name="Biome" parent="." unique_id=1128473858 instance=ExtResource("5_63mju")]
+
+[node name="Octavio" parent="." unique_id=608047473 instance=ExtResource("5_qcdg1")]
+
+[node name="HUD" parent="." unique_id=1798742590 instance=ExtResource("5_minrq")]
+
+[node name="maskmanager" parent="." unique_id=1588730593 instance=ExtResource("6_63mju")]

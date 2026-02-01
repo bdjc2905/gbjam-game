@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://woprl2x437l2" path="res://andres/escenas/mascara_dorada.tscn" id="5_a6pve"]
 [ext_resource type="PackedScene" uid="uid://dcfcbqbue2ssl" path="res://andres/escenas/marimonda.tscn" id="6_nkg00"]
 [ext_resource type="PackedScene" uid="uid://bq2draa0ongql" path="res://andres/escenas/cafe.tscn" id="7_5osjs"]
-[ext_resource type="PackedScene" uid="uid://8vbdgta6t018" path="res://hud.tscn" id="8_5x7ld"]
+[ext_resource type="PackedScene" path="res://hud.tscn" id="8_5x7ld"]
 [ext_resource type="PackedScene" uid="uid://dsobmj5urvlc5" path="res://andres/escenas/bola_de_fuego.tscn" id="9_5lu4r"]
 [ext_resource type="PackedScene" uid="uid://blqmq4fwcx2dm" path="res://andres/escenas/diavlo.tscn" id="10_a6pve"]
 [ext_resource type="PackedScene" uid="uid://cdg4bcf3hoigd" path="res://andres/escenas/lallorona.tscn" id="11_nkg00"]

@@ -1,4 +1,3 @@
-class_name Octavio
 extends CharacterBody2D
 
 @export var speed := 460.0

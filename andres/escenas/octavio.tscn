@@ -278,7 +278,7 @@ hframes = 5
 libraries/ = SubResource("AnimationLibrary_eiorq")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=816516664]
-zoom = Vector2(5, 5)
+zoom = Vector2(0.6, 0.6)
 
 [node name="Area2D" type="Area2D" parent="." unique_id=1029188655]
 

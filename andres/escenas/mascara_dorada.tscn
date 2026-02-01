@@ -135,6 +135,7 @@ _data = {
 
 [node name="Mascara_dorada" type="Area2D" unique_id=605409304]
 script = ExtResource("1_8s6m1")
+mask_id = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1814642409]
 position = Vector2(0, 2)
