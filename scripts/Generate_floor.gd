@@ -9,13 +9,13 @@ extends Node2D
 @export var from_side = [1,2,3,4]
 var origin_side = 0
 var ini_pose
+var puerta := []
 
-# 👉 NUEVO
 var entry_door_pos: Vector2
 
 @onready var floor_scene = preload("res://prefabs/floor.tscn")
 @onready var wall_scene  = preload("res://prefabs/pared.tscn")
-@onready var door_scene  = preload("res://prefabs/floor.tscn")
+@onready var door_scene  = preload("res://prefabs/door.tscn")
 @onready var zone_scene  = preload("res://prefabs/action_zone.tscn")
 
 func _ready():
@@ -43,15 +43,17 @@ func _generate_walls(start_pos:Vector2 = Vector2.ZERO):
 	var new_doors= doors.duplicate()
 	if origin_side != 0 and not doors.has(origin_side):
 		doors.append(origin_side)
-
-	
-
 	for side in [1,2,3,4]:
 		_build_wall(start_pos, side, doors.has(side))
 	generate_trigger(new_doors)
-
+	
+func close_door():
+	print("F")
+	status_puerta(true)
+	
 func generate_trigger(doors):
 	var area_instance = zone_scene.instantiate()
+	area_instance.player_entered.connect(close_door)
 	area_instance.width = width
 	area_instance.height = height
 	area_instance.tile_size = tile_size
@@ -70,7 +72,14 @@ func generate_trigger(doors):
 
 	get_tree().current_scene.add_child(area_instance)
 
-# -----------------------
+func status_puerta(state:bool =false):
+	for obj in puerta:
+		obj.visible = state
+		obj.set_process(state)
+		obj.set_physics_process(state)
+		for child in obj.get_children():
+			if child is CollisionShape2D:
+				child.disabled = !state
 
 func _build_wall(start_pos, side:int, has_door:bool):
 	var wall_len = 0
@@ -93,9 +102,11 @@ func _build_wall(start_pos, side:int, has_door:bool):
 
 		if i >= door_start and i < door_start + door_size and has_door:
 			num_door += 1
-			var tile = door_scene.instantiate()
-			tile.position = pos
-			add_child(tile)
+			if side == origin_side:
+				var tile = door_scene.instantiate()
+				tile.position = pos
+				puerta.append(tile)
+				add_child(tile)
 
 			if side != origin_side:
 				
@@ -111,6 +122,7 @@ func _build_wall(start_pos, side:int, has_door:bool):
 			var w = wall_scene.instantiate()
 			w.position = pos
 			add_child(w)
+	status_puerta(false)
 
 func _build_pasillo(init_poition:Vector2, side:int, door:int):
 	for i in range(pasillo_size):

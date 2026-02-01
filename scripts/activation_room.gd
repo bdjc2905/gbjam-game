@@ -11,6 +11,10 @@ var door_size:int = 2
 var pasillo_size:int = 8
 
 @onready var block_scene = preload("res://prefabs/door.tscn")
+signal player_entered
+
+func _ready():
+	body_entered.connect(collision_player)
 
 func _process(delta):
 	if not monitoring:
@@ -18,11 +22,15 @@ func _process(delta):
 
 	for body in get_overlapping_bodies():
 		if body.name == "Player":
-			monitoring = false
-			_close_entry_door()
-			_generate_next_rooms()
-			queue_free()
-
+			collision_player()
+			
+func collision_player():
+	emit_signal("player_entered")
+	monitoring = false
+	_close_entry_door()
+	_generate_next_rooms()
+	queue_free()
+	
 func _close_entry_door():
 	print(entry_door_pos)
 	var block = block_scene.instantiate()
