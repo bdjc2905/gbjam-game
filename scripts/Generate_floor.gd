@@ -34,35 +34,57 @@ func generate_floor(start_pos:Vector2):
 			add_child(f)
 
 func _generate_walls(start_pos:Vector2 = Vector2.ZERO):
-	
+
 	var doors = from_side.duplicate()
 	doors.shuffle()
 
 	var count_doors = randi_range(1, 4)
 	doors = doors.slice(0, count_doors)
 
-	while count_doors == 1 and doors.has(origin_side):
-		count_doors = randi_range(1, 4)
-		doors = doors.slice(0, count_doors)
-	var new_doors= doors.duplicate()
+	# 👉 asegurar al menos una salida que NO sea la de entrada
+	if origin_side != 0:
+		var has_exit := false
+		for side in doors:
+			if side != origin_side:
+				has_exit = true
+				break
+
+		if not has_exit:
+			for side in [1,2,3,4]:
+				if side != origin_side:
+					doors.append(side)
+					break
+
+	var new_doors := []
+	for side in doors:
+		if side != origin_side:
+			new_doors.append(side)
+
 	if origin_side != 0 and not doors.has(origin_side):
 		doors.append(origin_side)
+
 	for side in [1,2,3,4]:
 		_build_wall(start_pos, side, doors.has(side))
+
 	generate_trigger(new_doors)
 
 
 func _on_destroy_rooms():
-	call_deferred("destroy_previous")
-func destroy_previous():
-	print("detroado")
-	if(!this_no):
-		queue_free()
-	this_no=false
+	call_deferred("_check_destroy")
+	
+func _check_destroy():
+	if self == GameManager.current_room:
+		return
+	if self == GameManager.previous_room:
+		return
+	queue_free()
+	
 func close_door():
-	this_no=true
+	GameManager.previous_room = GameManager.current_room
+	GameManager.current_room = self
 	GameManager.destroy_rooms.emit()
 	status_puerta(true)
+
 	
 func generate_trigger(doors):
 	var area_instance = zone_scene.instantiate()
@@ -114,11 +136,12 @@ func _build_wall(start_pos, side:int, has_door:bool):
 
 		if i >= door_start and i < door_start + door_size and has_door:
 			num_door += 1
-			if side == origin_side:
+			if origin_side != 0 and side == origin_side:
 				var tile = door_scene.instantiate()
 				tile.position = pos
 				puerta.append(tile)
 				add_child(tile)
+				entry_door_pos=pos
 
 			if side != origin_side:
 				

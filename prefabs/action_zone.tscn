@@ -1,7 +1,6 @@
 [gd_scene format=3 uid="uid://dvf8addkc5il0"]
 
 [ext_resource type="Script" uid="uid://cguc07d1jntn2" path="res://scripts/activation_room.gd" id="1_ipgqc"]
-[ext_resource type="Texture2D" uid="uid://b6tajo0au6ohx" path="res://sprites/pasto1.png" id="1_yoch5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cs2eo"]
 size = Vector2(150, 142)
@@ -14,8 +13,3 @@ script = ExtResource("1_ipgqc")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=8803725]
 z_index = 5
 shape = SubResource("RectangleShape2D_cs2eo")
-
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1111618631]
-top_level = true
-z_index = 9
-texture = ExtResource("1_yoch5")

@@ -10,7 +10,6 @@ var tile_size:int = 32
 var door_size:int = 2
 var pasillo_size:int = 8
 
-@onready var block_scene = preload("res://prefabs/door.tscn")
 signal player_entered
 
 func _ready():
@@ -26,16 +25,9 @@ func _process(delta):
 func collision_player():
 	emit_signal("player_entered")
 	monitoring = false
-	_close_entry_door()
 	_generate_next_rooms()
 	queue_free()
 	
-func _close_entry_door():
-	print(entry_door_pos)
-	var block = block_scene.instantiate()
-	block.global_position = entry_door_pos
-	print("block:",block.position)
-	get_tree().current_scene.add_child(block)
 
 func _generate_next_rooms():
 	var script_ref = preload("res://scripts/Generate_floor.gd")
