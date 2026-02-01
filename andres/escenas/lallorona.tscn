@@ -1,0 +1,123 @@
+[gd_scene format=3 uid="uid://cdg4bcf3hoigd"]
+
+[ext_resource type="Texture2D" uid="uid://cwwaq5e5egxs1" path="res://raul/Assets/la llorona.png" id="1_6bmda"]
+[ext_resource type="Script" uid="uid://cuvpbay5roynd" path="res://andres/scripts/lallorona.gd" id="1_81ted"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_rfn57"]
+radius = 533.3554
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_81ted"]
+size = Vector2(45, 113)
+
+[sub_resource type="Animation" id="Animation_00hir"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Lallorona:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("1_6bmda")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Lallorona:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [8]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Lallorona:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_81ted"]
+resource_name = "llorona"
+length = 1.1333333
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Lallorona:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(-0.033333335),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("1_6bmda")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Lallorona:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(-0.06666667),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [8]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Lallorona:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.004075222, 0.033333335, 0.06666667, 0.10000001, 0.13333334, 0.16666667, 0.20000002, 0.23333335, 0.26259145, 0.29592478, 0.32925814, 0.36259145, 0.3959248, 0.42925814, 0.45257694, 0.48183504, 0.51516837, 0.54850173, 0.58183503, 0.6151684, 0.64850175, 0.67433727, 0.7035954, 0.7369287, 0.77026206, 0.80359536, 0.8369287, 0.870262, 0.90042454, 0.9296827, 0.963016, 0.99634933, 1.0296826, 1.0630159, 1.0963494),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 0, 1, 2, 3, 4, 5, 6, 0, 1, 2, 3, 4, 5, 6, 0, 1, 2, 3, 4, 5, 6, 0, 1, 2, 3, 4, 5, 6]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_00hir"]
+_data = {
+&"RESET": SubResource("Animation_00hir"),
+&"llorona": SubResource("Animation_81ted")
+}
+
+[node name="Lallorona" type="CharacterBody2D" unique_id=939721562 groups=["Enemigos"]]
+position = Vector2(804, 425)
+script = ExtResource("1_81ted")
+
+[node name="DetectionArea" type="Area2D" parent="." unique_id=817414663]
+position = Vector2(0.35003662, 0.7499695)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea" unique_id=987164479]
+position = Vector2(35.649963, 52.25003)
+shape = SubResource("CircleShape2D_rfn57")
+
+[node name="Lallorona" type="Sprite2D" parent="." unique_id=208221343]
+position = Vector2(32.999985, 41.99999)
+scale = Vector2(1.981958, 1.886694)
+texture = ExtResource("1_6bmda")
+hframes = 8
+
+[node name="Hitbox" type="Area2D" parent="." unique_id=1127332048]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=1719218795]
+position = Vector2(35.5, 43.5)
+shape = SubResource("RectangleShape2D_81ted")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=522712438]
+libraries/ = SubResource("AnimationLibrary_00hir")
+speed_scale = 0.316

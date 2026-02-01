@@ -1,0 +1,70 @@
+[gd_scene format=3 uid="uid://bvd83kdxrbjto"]
+
+[ext_resource type="Script" uid="uid://bifckhubmmrld" path="res://andres/scripts/game_over.gd" id="1_y26ei"]
+[ext_resource type="Texture2D" uid="uid://b0mjhqxbgtw2n" path="res://andres/assets/gameover.png" id="2_yxx3c"]
+
+[sub_resource type="FontFile" id="FontFile_yxx3c"]
+cache/0/variation_coordinates = {}
+cache/0/face_index = 0
+cache/0/embolden = 0.0
+cache/0/transform = Transform2D(1, 0, 0, 1, 0, 0)
+cache/0/spacing_top = 0
+cache/0/spacing_bottom = 0
+cache/0/spacing_space = 0
+cache/0/spacing_glyph = 0
+cache/0/baseline_offset = 0.0
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+cache/0/80/0/ascent = 0.0
+cache/0/80/0/descent = 0.0
+cache/0/80/0/underline_position = 0.0
+cache/0/80/0/underline_thickness = 0.0
+cache/0/80/0/scale = 1.0
+
+[sub_resource type="LabelSettings" id="LabelSettings_ccer4"]
+font = SubResource("FontFile_yxx3c")
+font_size = 80
+
+[node name="Control" type="Control" unique_id=371087401]
+z_index = 4096
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 5.0
+offset_top = 7.0
+offset_right = 5.0
+offset_bottom = 7.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.0040833, 1.011599)
+script = ExtResource("1_y26ei")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1518422301]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_yxx3c")
+
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=1666095755]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -13.943067
+offset_top = -10.873875
+offset_right = -13.943115
+offset_bottom = -10.873901
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="CenterContainer" unique_id=1700911093]
+layout_mode = 2
+text = "GAME OVER"
+label_settings = SubResource("LabelSettings_ccer4")

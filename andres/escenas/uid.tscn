@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://dtlbdbuery5si"]
+
+[ext_resource type="Texture2D" uid="uid://mn1l2yfiv0dd" path="res://andres/assets/progress_under.png" id="1_7se1k"]
+[ext_resource type="Texture2D" uid="uid://bw46omvckvefb" path="res://andres/assets/progress_out.png" id="2_cpb20"]
+[ext_resource type="Texture2D" uid="uid://daoo3ad2syhou" path="res://andres/assets/progress_progress.png" id="3_kn5nj"]
+[ext_resource type="Script" uid="uid://bicsc5gidjm3r" path="res://andres/escenas/texture_progress_bar.gd" id="4_3u617"]
+
+[node name="UID" type="CanvasLayer" unique_id=1327896111]
+
+[node name="HealthBar" type="TextureProgressBar" parent="." unique_id=1031597419]
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(4.1861734, 3.534141)
+value = 80.0
+fill_mode = 3
+nine_patch_stretch = true
+texture_under = ExtResource("1_7se1k")
+texture_over = ExtResource("2_cpb20")
+texture_progress = ExtResource("3_kn5nj")
+script = ExtResource("4_3u617")

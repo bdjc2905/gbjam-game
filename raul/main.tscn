@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://cmyxmqdjcmwb3"]
+
+[ext_resource type="Script" path="res://main.gd" id="1_ig7tw"]
+[ext_resource type="PackedScene" uid="uid://dsobmj5urvlc5" path="res://andres/escenas/bola_de_fuego.tscn" id="2_1bvp3"]
+[ext_resource type="PackedScene" uid="uid://blqmq4fwcx2dm" path="res://andres/escenas/diavlo.tscn" id="3_lquwl"]
+[ext_resource type="PackedScene" uid="uid://begrcf0v1c32q" path="res://raul/octavio.tscn" id="4_7mycd"]
+[ext_resource type="PackedScene" uid="uid://cdg4bcf3hoigd" path="res://andres/escenas/lallorona.tscn" id="5_lquwl"]
+
+[node name="main" type="Node2D" unique_id=3776836]
+script = ExtResource("1_ig7tw")
+escena_bola = ExtResource("2_1bvp3")
+escena_diavlo = ExtResource("3_lquwl")
+escena_octavio = ExtResource("4_7mycd")
+escena_llorona = ExtResource("5_lquwl")
