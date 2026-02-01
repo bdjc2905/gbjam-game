@@ -256,7 +256,7 @@ hframes = 10
 [node name="Hitbox" type="Area2D" parent="." unique_id=1127332048]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=1719218795]
-position = Vector2(48, 50)
+position = Vector2(44, 55)
 shape = SubResource("CircleShape2D_dct65")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=887962599]

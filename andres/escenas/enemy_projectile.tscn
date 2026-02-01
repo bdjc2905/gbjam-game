@@ -4,34 +4,31 @@
 [ext_resource type="Texture2D" uid="uid://475rqugqfnfr" path="res://raul/Assets/boladefuego.png" id="2_5lr7t"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kek77"]
-size = Vector2(40.625, 24.0625)
+size = Vector2(15.15625, 16.515625)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_272bh"]
-size = Vector2(40, 23)
+size = Vector2(17, 17.5)
 
 [node name="EnemyProjectile" type="CharacterBody2D" unique_id=1253520409]
 light_mask = 4
 z_index = 10
-position = Vector2(687, 302)
+position = Vector2(656, 296)
 script = ExtResource("1_ebt60")
-velocidad = null
-damage = null
-metadata/_edit_group_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1997431281]
-position = Vector2(25.5, 24.5)
-scale = Vector2(0.092773475, 0.071289085)
+position = Vector2(7.9999995, 0)
+scale = Vector2(0.026, 0.02)
 texture = ExtResource("2_5lr7t")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1736377630]
-position = Vector2(-2, 3)
+position = Vector2(8, 0)
 shape = SubResource("RectangleShape2D_kek77")
 
 [node name="Hitbox" type="Area2D" parent="." unique_id=875952440]
 position = Vector2(-3, 4)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=718900751]
-position = Vector2(0, -2)
+position = Vector2(11.5, -4.75)
 shape = SubResource("RectangleShape2D_272bh")
 
 [node name="LifeTimer" type="Timer" parent="." unique_id=1363546521]

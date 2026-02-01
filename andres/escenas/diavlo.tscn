@@ -82,7 +82,7 @@ _data = {
 [sub_resource type="CircleShape2D" id="CircleShape2D_272bh"]
 radius = 43.046486
 
-[node name="Diavlo" type="CharacterBody2D" unique_id=761952443 groups=["Octavio"]]
+[node name="Diavlo" type="CharacterBody2D" unique_id=761952443 groups=["Enemigos"]]
 position = Vector2(1015, 12)
 platform_floor_layers = 4294901762
 platform_wall_layers = 1
@@ -114,3 +114,5 @@ wait_time = 0.275
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1365402280]
 position = Vector2(48, 50)
 shape = SubResource("CircleShape2D_272bh")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1488111838]
