@@ -1,9 +1,10 @@
 [gd_scene format=3 uid="uid://dvf8addkc5il0"]
 
 [ext_resource type="Script" uid="uid://cguc07d1jntn2" path="res://scripts/activation_room.gd" id="1_ipgqc"]
+[ext_resource type="Texture2D" uid="uid://yj3exkqivutd" path="res://sprites/circle.png" id="2_ipgqc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cs2eo"]
-size = Vector2(150, 142)
+size = Vector2(33, 32)
 
 [node name="action_zone" type="Area2D" unique_id=328596500]
 z_index = 10
@@ -12,4 +13,10 @@ script = ExtResource("1_ipgqc")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=8803725]
 z_index = 5
+position = Vector2(0, -1)
 shape = SubResource("RectangleShape2D_cs2eo")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=935388986]
+visible = false
+modulate = Color(0.25490198, 0.22745098, 1, 1)
+texture = ExtResource("2_ipgqc")

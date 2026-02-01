@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://cl0virg8kryms"]
+
+[ext_resource type="PackedScene" uid="uid://ccjlsfqouho5g" path="res://prefabs/pared.tscn" id="1_7rdj6"]
+[ext_resource type="Script" uid="uid://srdkc1cnuq6a" path="res://scripts/Biome.gd" id="1_sg2xa"]
+[ext_resource type="PackedScene" uid="uid://bsfnm7a5c7tiw" path="res://prefabs/floor.tscn" id="2_sg2xa"]
+[ext_resource type="PackedScene" uid="uid://dy421mowhnlb4" path="res://prefabs/floor_d_1.tscn" id="3_cgpwk"]
+
+[node name="Biome" type="Node2D" unique_id=1128473858]
+script = ExtResource("1_sg2xa")
+wall_scene = ExtResource("1_7rdj6")
+floor_scene = ExtResource("2_sg2xa")
+floor_alt_scene = ExtResource("3_cgpwk")

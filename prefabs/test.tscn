@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://bab27mulce3gq"]
+
+[ext_resource type="Texture2D" uid="uid://yj3exkqivutd" path="res://sprites/circle.png" id="1_wpf0n"]
+
+[node name="Node2D2" type="Node2D" unique_id=2044289008]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1658495197]
+modulate = Color(0.41960785, 0.42745098, 1, 1)
+texture = ExtResource("1_wpf0n")

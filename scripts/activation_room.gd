@@ -15,19 +15,15 @@ signal player_entered
 func _ready():
 	body_entered.connect(collision_player)
 
-func _process(delta):
-	if not monitoring:
+func collision_player(body):
+	if body.name != "Player":
 		return
-	for body in get_overlapping_bodies():
-		if body.name == "Player":
-			collision_player()
-			
-func collision_player():
+
 	emit_signal("player_entered")
-	monitoring = false
-	_generate_next_rooms()
+	set_deferred("monitoring", false)
+	call_deferred("_generate_next_rooms")
 	queue_free()
-	
+
 
 func _generate_next_rooms():
 	var script_ref = preload("res://scripts/Generate_floor.gd")

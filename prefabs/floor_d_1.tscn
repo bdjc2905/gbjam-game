@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://dy421mowhnlb4"]
+
+[ext_resource type="Texture2D" uid="uid://byyknc0l4ro7v" path="res://sprites/damage_floor.png" id="1_v0oid"]
+
+[node name="floor_d_1" type="Node2D" unique_id=362632884]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=283473044]
+texture = ExtResource("1_v0oid")

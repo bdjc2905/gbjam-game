@@ -11,27 +11,50 @@ var origin_side = 0
 var ini_pose
 var puerta := []
 
+@export var biomes: Array[Node2D]
+var current_biome: Biome
+
+
 var entry_door_pos: Vector2
 
 @onready var floor_scene = preload("res://prefabs/floor.tscn")
 @onready var wall_scene  = preload("res://prefabs/pared.tscn")
 @onready var door_scene  = preload("res://prefabs/door.tscn")
 @onready var zone_scene  = preload("res://prefabs/action_zone.tscn")
+@onready var spawner  = preload("res://prefabs/spawner.tscn")
 
 signal destroy_rooms
 var this_no :bool
 func _ready():
 	GameManager.destroy_rooms.connect(_on_destroy_rooms)
+	current_biome = biomes.pick_random() as Biome
 	generate_floor(position)
 	_generate_walls(position)
+	create_spawner()
+
+func create_spawner():
+	var spawn = spawner.instantiate()
+	var min = ini_pose + Vector2(tile_size,tile_size)
+	var max = Vector2(
+		ini_pose.x + ((width-1) * tile_size),
+		ini_pose.y + ((height-1) * tile_size)
+	)
+	spawn.top_left=min
+	spawn.bottom_right=max
+	get_tree().current_scene.add_child.call_deferred(spawn)
 
 func generate_floor(start_pos:Vector2):
 	ini_pose = start_pos
 	for i in range(height):
 		for j in range(width):
-			var f = floor_scene.instantiate()
+			var tile_scene := current_biome.floor_scene
+			if current_biome.floor_alt_scene and randf() < current_biome.alt_floor_chance:
+				tile_scene = current_biome.floor_alt_scene
+
+			var f = tile_scene.instantiate()
 			f.position += Vector2(j * tile_size, i * tile_size)
 			add_child(f)
+
 
 func _generate_walls(start_pos:Vector2 = Vector2.ZERO):
 
@@ -68,7 +91,6 @@ func _generate_walls(start_pos:Vector2 = Vector2.ZERO):
 
 	generate_trigger(new_doors)
 
-
 func _on_destroy_rooms():
 	call_deferred("_check_destroy")
 	
@@ -84,7 +106,6 @@ func close_door():
 	GameManager.current_room = self
 	GameManager.destroy_rooms.emit()
 	status_puerta(true)
-
 	
 func generate_trigger(doors):
 	var area_instance = zone_scene.instantiate()
@@ -99,7 +120,7 @@ func generate_trigger(doors):
 
 	# 👉 PASAMOS la posición de la puerta de entrada
 	area_instance.entry_door_pos = entry_door_pos
-
+	area_instance.scale= Vector2(((width)-2),((height)-2))
 	area_instance.position = Vector2(
 		ini_pose.x + (width * tile_size) / 2,
 		ini_pose.y + (height * tile_size) / 2
@@ -113,7 +134,7 @@ func status_puerta(state:bool =false):
 		obj.set_physics_process(state)
 		for child in obj.get_children():
 			if child is CollisionShape2D:
-				child.disabled = !state
+				child.set_deferred("disabled", !state)
 
 func _build_wall(start_pos, side:int, has_door:bool):
 	var wall_len = 0
@@ -154,7 +175,7 @@ func _build_wall(start_pos, side:int, has_door:bool):
 			else:
 				entry_door_pos = pos
 		else:
-			var w = wall_scene.instantiate()
+			var w = current_biome.wall_scene.instantiate()
 			w.position = pos
 			add_child(w)
 	status_puerta(false)
