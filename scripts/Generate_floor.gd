@@ -6,7 +6,7 @@ extends Node2D
 @export var door_size:int = 2
 @export var pasillo_size:int = 8
 
-@export var from_side = [1,2,3,4]
+var from_side := [1,2,3,4]
 var origin_side = 0
 var ini_pose
 var puerta := []
@@ -18,7 +18,10 @@ var entry_door_pos: Vector2
 @onready var door_scene  = preload("res://prefabs/door.tscn")
 @onready var zone_scene  = preload("res://prefabs/action_zone.tscn")
 
+signal destroy_rooms
+var this_no :bool
 func _ready():
+	GameManager.destroy_rooms.connect(_on_destroy_rooms)
 	generate_floor(position)
 	_generate_walls(position)
 
@@ -31,6 +34,7 @@ func generate_floor(start_pos:Vector2):
 			add_child(f)
 
 func _generate_walls(start_pos:Vector2 = Vector2.ZERO):
+	
 	var doors = from_side.duplicate()
 	doors.shuffle()
 
@@ -46,9 +50,18 @@ func _generate_walls(start_pos:Vector2 = Vector2.ZERO):
 	for side in [1,2,3,4]:
 		_build_wall(start_pos, side, doors.has(side))
 	generate_trigger(new_doors)
-	
+
+
+func _on_destroy_rooms():
+	call_deferred("destroy_previous")
+func destroy_previous():
+	print("detroado")
+	if(!this_no):
+		queue_free()
+	this_no=false
 func close_door():
-	print("F")
+	this_no=true
+	GameManager.destroy_rooms.emit()
 	status_puerta(true)
 	
 func generate_trigger(doors):
@@ -69,8 +82,7 @@ func generate_trigger(doors):
 		ini_pose.x + (width * tile_size) / 2,
 		ini_pose.y + (height * tile_size) / 2
 	)
-
-	get_tree().current_scene.add_child(area_instance)
+	get_tree().current_scene.add_child.call_deferred(area_instance)
 
 func status_puerta(state:bool =false):
 	for obj in puerta:

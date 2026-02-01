@@ -19,7 +19,6 @@ func _ready():
 func _process(delta):
 	if not monitoring:
 		return
-
 	for body in get_overlapping_bodies():
 		if body.name == "Player":
 			collision_player()
