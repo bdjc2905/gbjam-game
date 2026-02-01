@@ -36,6 +36,7 @@ script = ExtResource("5_v5w56")
 script = ExtResource("1_dr4qt")
 width = 20
 height = 16
+tile_size = null
 door_size = 6
 pasillo_size = 4
 biomes = [NodePath("../Biome")]
