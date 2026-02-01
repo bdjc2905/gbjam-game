@@ -14,10 +14,9 @@ script = ExtResource("5_v5w56")
 
 [node name="floor_manager" type="Node2D" parent="." unique_id=1921901522]
 script = ExtResource("1_dr4qt")
-width = 6
-height = 6
-door_size = 6
-pasillo_size = 4
+width = 20
+height = 16
+pasillo_size = 6
 
 [node name="Biome" parent="." unique_id=1128473858 instance=ExtResource("5_63mju")]
 

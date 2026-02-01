@@ -104,6 +104,7 @@ position = Vector2(0.35003662, 0.7499695)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea" unique_id=987164479]
 position = Vector2(35.649963, 52.25003)
+scale = Vector2(0.49523798, 0.541928)
 shape = SubResource("CircleShape2D_rfn57")
 
 [node name="Lallorona" type="Sprite2D" parent="." unique_id=208221343]

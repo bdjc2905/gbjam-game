@@ -1,5 +1,4 @@
 extends Control
-
 @onready var btn_reintentar: Button = $Label/Reintentar
 @onready var btn_menu: Button = $Label/Menu
 @onready var audio_player: AudioStreamPlayer2D = $AudioStreamPlayer2D
@@ -13,8 +12,7 @@ func _ready() -> void:
 	play_sound("res://audios/die-47695.mp3")
 
 func _on_reintentar_pressed() -> void:
-	get_tree().change_scene_to_file("res://andres/escenas/mapa_provisional.tscn")
-
+	get_tree().change_scene_to_file("res://Bran.tscn")
 
 func _on_menu_pressed() -> void:
 	get_tree().change_scene_to_file("res://andres/escenas/menu.tscn")

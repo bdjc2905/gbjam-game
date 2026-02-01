@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://bla3245b3egyf"]
 
 [ext_resource type="Script" uid="uid://d2vnuk5tfobq7" path="res://scripts/spawner.gd" id="1_8khw6"]
+[ext_resource type="PackedScene" uid="uid://blqmq4fwcx2dm" path="res://andres/escenas/diavlo.tscn" id="2_v4np4"]
 [ext_resource type="PackedScene" uid="uid://bmdk3hh27mgkh" path="res://andres/escenas/moneda.tscn" id="3_tjjl2"]
 [ext_resource type="PackedScene" uid="uid://bq2draa0ongql" path="res://andres/escenas/cafe.tscn" id="4_js1nw"]
 [ext_resource type="PackedScene" uid="uid://bmwe5wpka3jmf" path="res://andres/escenas/mascara_wayuu.tscn" id="5_mgmk6"]
@@ -9,9 +10,11 @@
 
 [node name="spawner" type="Node2D" unique_id=2043099758]
 script = ExtResource("1_8khw6")
-min_enemies = 2
-max_enemies = 8
-special_chance = 0.9
+max_enemies = 3
+min_coins = 1
+max_coins = 4
+special_chance = 0.3
+enemy_scene = ExtResource("2_v4np4")
 coin_scene = ExtResource("3_tjjl2")
 coffee_scene = ExtResource("4_js1nw")
 mask_scenes = Array[PackedScene]([ExtResource("5_mgmk6"), ExtResource("6_i4bu7"), ExtResource("7_4ilaf")])

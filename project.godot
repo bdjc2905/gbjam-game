@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Nuevo Proyecto de Juego"
-run/main_scene="uid://dh6a66jje0g7c"
+run/main_scene="uid://bj2xbc3m55uk7"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
 
@@ -19,6 +19,10 @@ config/icon="res://icon.svg"
 
 GameManager="*uid://bp1see4adtmh8"
 MaskManager="*uid://b2ikmfeup71mo"
+
+[global_group]
+
+pared=""
 
 [input]
 
@@ -74,4 +78,5 @@ move_right={
 
 [rendering]
 
+textures/canvas_textures/default_texture_filter=0
 rendering_device/driver.windows="d3d12"

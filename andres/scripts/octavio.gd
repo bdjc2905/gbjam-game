@@ -184,9 +184,9 @@ func attack():
 	for cuerpo in cuerpos:
 		if cuerpo.has_method("take_damage"):
 			print("Detectado cuerpo:", cuerpo.name)
-		if cuerpo is Lallorona or Diavlo or BolaDeFuego:
-			print("Haciendo daño a:", cuerpo.name)
-			cuerpo.take_damage(190)
+			if cuerpo is Lallorona or Diavlo or BolaDeFuego:
+				print("Haciendo daño a:", cuerpo.name)
+				cuerpo.take_damage(190)
 
 	# Desactivar hitbox de ataque
 	attack_area.monitoring = false

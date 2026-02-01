@@ -24,6 +24,7 @@ func _ready():
 	timer.start()
 
 func _physics_process(_delta):
+	
 	if objetivo:
 		look_at(objetivo.global_position)
 		

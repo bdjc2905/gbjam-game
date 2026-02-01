@@ -13,7 +13,7 @@ func _ready() -> void:
 	
 
 func _on_menu_pressed() -> void:
-	get_tree().change_scene_to_file("res://andres/escenas/mapa_provisional.tscn")
+	get_tree().change_scene_to_file("res://Bran.tscn")
 
 func play_sound(path: String) -> void:
 	var sound = load(path) as AudioStream
