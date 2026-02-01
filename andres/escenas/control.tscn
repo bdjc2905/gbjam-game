@@ -1,0 +1,76 @@
+[gd_scene format=3 uid="uid://up2n44j3oo63"]
+
+[ext_resource type="Script" uid="uid://ft1lkbirjiac" path="res://andres/escenas/control.gd" id="1_4rflm"]
+[ext_resource type="Texture2D" uid="uid://b0mjhqxbgtw2n" path="res://andres/assets/gameover.png" id="2_yv277"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_ta5pp"]
+font_size = 100
+font_color = Color(0.88431424, 3.200695e-06, 1.1551381e-06, 1)
+
+[node name="Control" type="Control" unique_id=339737786]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.3087275, 1.1679623)
+script = ExtResource("1_4rflm")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1111387593]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -767.9998
+offset_top = -512.0
+offset_right = 768.0002
+offset_bottom = 512.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_yv277")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=482258008]
+layout_mode = 0
+offset_left = -767.9999
+offset_top = -512.0
+offset_right = 761.5939
+offset_bottom = 514.1504
+color = Color(0, 0, 0, 0.6666667)
+
+[node name="Label" type="Label" parent="." unique_id=3236683]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_top = -76.0
+offset_right = 208.0
+offset_bottom = 58.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1, 1.0079734)
+text = "MORISTE"
+label_settings = SubResource("LabelSettings_ta5pp")
+
+[node name="Reintentar" type="Button" parent="Label" unique_id=1739232753]
+layout_mode = 0
+offset_left = 128.0
+offset_top = 174.60779
+offset_right = 268.10788
+offset_bottom = 227.62817
+scale = Vector2(1.1562519, 1.122688)
+text = "Reintentar"
+
+[node name="Menu" type="Button" parent="Label" unique_id=691197638]
+layout_mode = 0
+offset_left = 131.0
+offset_top = 257.94333
+offset_right = 266.37805
+offset_bottom = 303.8193
+scale = Vector2(1.1562519, 1.122688)
+text = "Menu"

@@ -1,0 +1,50 @@
+[gd_scene format=3 uid="uid://wdcwnpdg3mfj"]
+
+[ext_resource type="PackedScene" uid="uid://bq2draa0ongql" path="res://andres/escenas/cafe.tscn" id="1_lstuo"]
+[ext_resource type="PackedScene" uid="uid://bmdk3hh27mgkh" path="res://andres/escenas/moneda.tscn" id="2_mla3o"]
+[ext_resource type="PackedScene" uid="uid://bla7eqw4wy3ik" path="res://andres/escenas/octavio.tscn" id="3_0bsmp"]
+[ext_resource type="PackedScene" uid="uid://woprl2x437l2" path="res://andres/escenas/mascara_dorada.tscn" id="4_mla3o"]
+[ext_resource type="PackedScene" uid="uid://bmwe5wpka3jmf" path="res://andres/escenas/mascara_wayuu.tscn" id="5_0bsmp"]
+[ext_resource type="PackedScene" uid="uid://dcfcbqbue2ssl" path="res://andres/escenas/marimonda.tscn" id="6_8fh1j"]
+[ext_resource type="PackedScene" uid="uid://dvhj5ww2id524" path="res://andres/escenas/enemigo_prueba.tscn" id="7_4v8yr"]
+[ext_resource type="PackedScene" uid="uid://8vbdgta6t018" path="res://hud.tscn" id="8_ruwte"]
+
+[node name="Pruebas" type="Node2D" unique_id=1952802517]
+
+[node name="Moneda2" parent="." unique_id=1286303940 instance=ExtResource("2_mla3o")]
+position = Vector2(178, -2)
+
+[node name="Moneda3" parent="." unique_id=2049978327 instance=ExtResource("2_mla3o")]
+position = Vector2(114, 35)
+
+[node name="Moneda" parent="." unique_id=554855742 instance=ExtResource("2_mla3o")]
+position = Vector2(117, -32)
+
+[node name="Moneda4" parent="." unique_id=141756785 instance=ExtResource("2_mla3o")]
+position = Vector2(167, -47)
+
+[node name="Cafe" parent="." unique_id=200001170 instance=ExtResource("1_lstuo")]
+position = Vector2(63, -52)
+
+[node name="Octavio" parent="." unique_id=608047473 instance=ExtResource("3_0bsmp")]
+
+[node name="Cafe2" parent="." unique_id=985625249 instance=ExtResource("1_lstuo")]
+position = Vector2(-45, -41)
+
+[node name="Cafe3" parent="." unique_id=500961018 instance=ExtResource("1_lstuo")]
+position = Vector2(62, 85)
+
+[node name="Mascara_dorada" parent="." unique_id=605409304 instance=ExtResource("4_mla3o")]
+position = Vector2(-74, 71)
+
+[node name="mascara_wayuu" parent="." unique_id=1340159851 instance=ExtResource("5_0bsmp")]
+position = Vector2(-137, 12)
+
+[node name="Marimonda" parent="." unique_id=1714355134 instance=ExtResource("6_8fh1j")]
+position = Vector2(-195, 64)
+scale = Vector2(0.3647424, 0.33079705)
+
+[node name="Enemigo_prueba" parent="." unique_id=1741528768 instance=ExtResource("7_4v8yr")]
+position = Vector2(-206, -54)
+
+[node name="HUD" parent="." unique_id=1798742590 instance=ExtResource("8_ruwte")]

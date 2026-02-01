@@ -1,0 +1,97 @@
+[gd_scene format=3 uid="uid://b032ycwna8tvy"]
+
+[ext_resource type="PackedScene" uid="uid://d2nyttc60sppa" path="res://andres/escenas/character_body_2d.tscn" id="1_50gl5"]
+[ext_resource type="PackedScene" uid="uid://biujwt5xq8hkw" path="res://andres/escenas/plataforma.tscn" id="2_cx5h5"]
+[ext_resource type="Script" uid="uid://ctkj3lwg0yt5t" path="res://andres/escenas/character_body_2d.gd" id="3_b0p2f"]
+[ext_resource type="Texture2D" uid="uid://dhumq3qkp1hrv" path="res://andres/fantasma.png" id="4_tvemv"]
+[ext_resource type="Texture2D" uid="uid://mn1l2yfiv0dd" path="res://andres/assets/progress_under.png" id="5_tklpr"]
+[ext_resource type="Texture2D" uid="uid://bw46omvckvefb" path="res://andres/assets/progress_out.png" id="6_jpsse"]
+[ext_resource type="Texture2D" uid="uid://daoo3ad2syhou" path="res://andres/assets/progress_progress.png" id="7_d7bpv"]
+[ext_resource type="Script" uid="uid://bicsc5gidjm3r" path="res://andres/escenas/texture_progress_bar.gd" id="7_jac2y"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_g2b6a"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_tklpr"]
+
+[node name="Node2D" type="Node2D" unique_id=1645766280]
+
+[node name="Plataforma3" parent="." unique_id=694151219 instance=ExtResource("2_cx5h5")]
+position = Vector2(16, -100.00001)
+scale = Vector2(0.13557918, 12.894679)
+
+[node name="Personaje" parent="." unique_id=1035575998 groups=["BARRA VIDA", "player"] instance=ExtResource("1_50gl5")]
+position = Vector2(166, 33)
+
+[node name="Plataforma" parent="." unique_id=1869550249 instance=ExtResource("2_cx5h5")]
+position = Vector2(51, 98)
+scale = Vector2(2.477745, 1.1749916)
+
+[node name="Plataforma2" parent="." unique_id=624117631 instance=ExtResource("2_cx5h5")]
+position = Vector2(48, -103.99999)
+scale = Vector2(2.6377172, 0.63605714)
+
+[node name="Plataforma5" parent="." unique_id=1316278553 instance=ExtResource("2_cx5h5")]
+position = Vector2(666, -113)
+scale = Vector2(0.30844095, 13.645313)
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=347262838]
+visibility_layer = 2
+script = ExtResource("3_b0p2f")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=1789007539]
+position = Vector2(474, 15)
+shape = SubResource("CapsuleShape2D_g2b6a")
+
+[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D" unique_id=1585627199]
+position = Vector2(474, 17)
+scale = Vector2(0.20841512, 0.22715965)
+texture = ExtResource("4_tvemv")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=231368157]
+
+[node name="HealthBar" type="TextureProgressBar" parent="CanvasLayer" unique_id=1902466441]
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(4.1861734, 3.534141)
+value = 80.0
+fill_mode = 3
+nine_patch_stretch = true
+texture_under = ExtResource("5_tklpr")
+texture_over = ExtResource("6_jpsse")
+texture_progress = ExtResource("7_d7bpv")
+script = ExtResource("7_jac2y")
+
+[node name="GameOver" type="Control" parent="CanvasLayer" unique_id=542309360]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/GameOver" unique_id=1635231718]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.31764707, 0, 0.015686275, 1)
+
+[node name="Label" type="Label" parent="CanvasLayer/GameOver" unique_id=1525813041]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -46.0
+offset_top = -11.5
+offset_right = 46.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+text = "GAME OVER"
+label_settings = SubResource("LabelSettings_tklpr")

@@ -1,0 +1,60 @@
+[gd_scene format=3 uid="uid://bj2xbc3m55uk7"]
+
+[ext_resource type="Script" uid="uid://sqdprwxd0qv3" path="res://andres/escenas/menu.gd" id="1_vfsir"]
+[ext_resource type="Texture2D" uid="uid://de2bfxqu1qvxs" path="res://andres/assets/wallpaper.png" id="1_wbdgy"]
+[ext_resource type="Texture2D" uid="uid://c5g50vhvg6fwf" path="res://andres/assets/cupcofee.png" id="2_1voo5"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_vfsir"]
+font_size = 50
+
+[node name="Control" type="Control" unique_id=1234945281]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_vfsir")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=531314972]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_wbdgy")
+expand_mode = 3
+
+[node name="Label" type="Label" parent="." unique_id=1986133331]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -216.0
+offset_top = 39.999996
+offset_right = 93.0
+offset_bottom = 120.0
+grow_horizontal = 2
+scale = Vector2(1.22301, 1.4542756)
+text = "Jhoan Valdez"
+label_settings = SubResource("LabelSettings_vfsir")
+
+[node name="Button" type="Button" parent="." unique_id=1243912903]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -168.0
+offset_top = -11.9999695
+offset_right = 1279.696
+offset_bottom = 405.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.19104487, 0.14297794)
+theme_override_font_sizes/font_size = 300
+theme_override_icons/icon = ExtResource("2_1voo5")
+text = "Jugar"
+flat = true

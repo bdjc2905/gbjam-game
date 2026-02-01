@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://c8nlellps0mek"]
+
+[ext_resource type="Script" uid="uid://b8liithetsav2" path="res://andres/scripts/attack_hitbox.gd" id="1_a6v1r"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yhf36"]
+
+[node name="AttackHitbox" type="Area2D" unique_id=1514675478]
+script = ExtResource("1_a6v1r")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1194682771]
+shape = SubResource("RectangleShape2D_yhf36")

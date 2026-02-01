@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://dvhj5ww2id524"]
+
+[ext_resource type="Script" uid="uid://d15j6sh6883p2" path="res://andres/scripts/enemigo_prueba.gd" id="1_8lsmn"]
+[ext_resource type="Texture2D" uid="uid://daoo3ad2syhou" path="res://andres/assets/progress_progress.png" id="2_3okba"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_prd25"]
+size = Vector2(10.93409, 18.633383)
+
+[node name="Enemigo_prueba" type="CharacterBody2D" unique_id=1741528768 groups=["Enemigos"]]
+script = ExtResource("1_8lsmn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=542107377]
+position = Vector2(-7.999999, -1.1324883e-06)
+scale = Vector2(2.7437127, -2.4686875)
+shape = SubResource("RectangleShape2D_prd25")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1239515547]
+texture = ExtResource("2_3okba")

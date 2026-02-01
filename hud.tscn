@@ -1,0 +1,50 @@
+[gd_scene format=3 uid="uid://8vbdgta6t018"]
+
+[ext_resource type="Script" uid="uid://boegu5s8h2650" path="res://andres/scripts/hud.gd" id="1_37p78"]
+[ext_resource type="Texture2D" uid="uid://mn1l2yfiv0dd" path="res://andres/assets/progress_under.png" id="2_a2258"]
+[ext_resource type="Texture2D" uid="uid://bw46omvckvefb" path="res://andres/assets/progress_out.png" id="3_1xsix"]
+[ext_resource type="Texture2D" uid="uid://daoo3ad2syhou" path="res://andres/assets/progress_progress.png" id="4_rftc2"]
+[ext_resource type="Texture2D" uid="uid://xmng8nvv0x7x" path="res://andres/assets/moneda.png" id="5_61f8s"]
+
+[node name="HUD" type="CanvasLayer" unique_id=1798742590]
+script = ExtResource("1_37p78")
+
+[node name="Container" type="VBoxContainer" parent="." unique_id=1796243688]
+offset_left = 16.0
+offset_top = 21.000002
+offset_right = 70.0
+offset_bottom = 78.0
+scale = Vector2(3.2973626, 2.8291118)
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="Container" unique_id=640888543]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+value = 70.0
+fill_mode = 3
+texture_under = ExtResource("2_a2258")
+texture_over = ExtResource("3_1xsix")
+texture_progress = ExtResource("4_rftc2")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1057151664]
+position = Vector2(38, 240.00002)
+scale = Vector2(2.043736, 1.9967189)
+texture = ExtResource("5_61f8s")
+hframes = 6
+
+[node name="Label" type="Label" parent="." unique_id=1377553395]
+offset_left = 69.0
+offset_top = 226.0
+offset_right = 89.0
+offset_bottom = 254.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 20
+
+[node name="Label2" type="Label" parent="." unique_id=1925649507]
+offset_left = 52.0
+offset_top = 80.0
+offset_right = 106.0
+offset_bottom = 122.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 30

@@ -1,0 +1,136 @@
+[gd_scene format=3 uid="uid://lwhcwm3kxsr3"]
+
+[ext_resource type="PackedScene" uid="uid://boswikgqf8g7v" path="res://andres/escenas/provisional.tscn" id="1_ct83g"]
+[ext_resource type="PackedScene" uid="uid://bla7eqw4wy3ik" path="res://andres/escenas/octavio.tscn" id="2_0klxx"]
+[ext_resource type="PackedScene" uid="uid://bmdk3hh27mgkh" path="res://andres/escenas/moneda.tscn" id="3_5pe50"]
+[ext_resource type="PackedScene" uid="uid://bmwe5wpka3jmf" path="res://andres/escenas/mascara_wayuu.tscn" id="4_5lu4r"]
+[ext_resource type="PackedScene" uid="uid://woprl2x437l2" path="res://andres/escenas/mascara_dorada.tscn" id="5_a6pve"]
+[ext_resource type="PackedScene" uid="uid://dcfcbqbue2ssl" path="res://andres/escenas/marimonda.tscn" id="6_nkg00"]
+[ext_resource type="PackedScene" uid="uid://bq2draa0ongql" path="res://andres/escenas/cafe.tscn" id="7_5osjs"]
+[ext_resource type="PackedScene" uid="uid://8vbdgta6t018" path="res://hud.tscn" id="8_5x7ld"]
+[ext_resource type="PackedScene" uid="uid://dsobmj5urvlc5" path="res://andres/escenas/bola_de_fuego.tscn" id="9_5lu4r"]
+[ext_resource type="PackedScene" uid="uid://blqmq4fwcx2dm" path="res://andres/escenas/diavlo.tscn" id="10_a6pve"]
+[ext_resource type="PackedScene" uid="uid://cdg4bcf3hoigd" path="res://andres/escenas/lallorona.tscn" id="11_nkg00"]
+
+[node name="Mapa_provisional" type="Node2D" unique_id=70973057]
+
+[node name="Provisional" parent="." unique_id=1514206787 instance=ExtResource("1_ct83g")]
+
+[node name="Octavio" parent="." unique_id=608047473 instance=ExtResource("2_0klxx")]
+visibility_layer = 6
+position = Vector2(-560, -368)
+
+[node name="Moneda" parent="." unique_id=1286303940 instance=ExtResource("3_5pe50")]
+position = Vector2(-992, 104)
+
+[node name="Moneda2" parent="." unique_id=1358586587 instance=ExtResource("3_5pe50")]
+position = Vector2(-912, -88)
+
+[node name="Moneda3" parent="." unique_id=113649051 instance=ExtResource("3_5pe50")]
+position = Vector2(-1136, -272)
+
+[node name="Moneda4" parent="." unique_id=1695052509 instance=ExtResource("3_5pe50")]
+position = Vector2(-800, -208)
+
+[node name="Moneda5" parent="." unique_id=785526420 instance=ExtResource("3_5pe50")]
+position = Vector2(-704, 56)
+
+[node name="Moneda6" parent="." unique_id=967642194 instance=ExtResource("3_5pe50")]
+position = Vector2(-600, -168)
+
+[node name="Moneda7" parent="." unique_id=1115389139 instance=ExtResource("3_5pe50")]
+position = Vector2(-448, 96)
+
+[node name="Moneda8" parent="." unique_id=1432342526 instance=ExtResource("3_5pe50")]
+position = Vector2(-376, -88)
+
+[node name="Moneda9" parent="." unique_id=851869012 instance=ExtResource("3_5pe50")]
+position = Vector2(-232, 56)
+
+[node name="Moneda10" parent="." unique_id=301714118 instance=ExtResource("3_5pe50")]
+position = Vector2(-80, -88)
+
+[node name="Moneda11" parent="." unique_id=1418264980 instance=ExtResource("3_5pe50")]
+position = Vector2(136, -296)
+
+[node name="Moneda12" parent="." unique_id=2066930418 instance=ExtResource("3_5pe50")]
+position = Vector2(344, 40)
+
+[node name="Moneda13" parent="." unique_id=240517067 instance=ExtResource("3_5pe50")]
+position = Vector2(296, -424)
+
+[node name="Moneda14" parent="." unique_id=1149471781 instance=ExtResource("3_5pe50")]
+position = Vector2(80, -480)
+
+[node name="Moneda15" parent="." unique_id=1025240125 instance=ExtResource("3_5pe50")]
+position = Vector2(-80, -432)
+
+[node name="Moneda16" parent="." unique_id=2082614611 instance=ExtResource("3_5pe50")]
+position = Vector2(-240, -488)
+
+[node name="Moneda17" parent="." unique_id=1524870055 instance=ExtResource("3_5pe50")]
+position = Vector2(-352, -472)
+
+[node name="mascara_wayuu" parent="." unique_id=1340159851 instance=ExtResource("4_5lu4r")]
+position = Vector2(-792, 128)
+
+[node name="Mascara_dorada" parent="." unique_id=605409304 instance=ExtResource("5_a6pve")]
+position = Vector2(-968, -496)
+
+[node name="Marimonda" parent="." unique_id=1714355134 instance=ExtResource("6_nkg00")]
+position = Vector2(-167.99994, -352)
+scale = Vector2(0.42322382, 0.32342792)
+
+[node name="Cafe" parent="." unique_id=200001170 instance=ExtResource("7_5osjs")]
+position = Vector2(-640, -408)
+scale = Vector2(0.9550472, 1.0844109)
+
+[node name="Cafe2" parent="." unique_id=713672336 instance=ExtResource("7_5osjs")]
+position = Vector2(-1120, -96)
+scale = Vector2(0.9550472, 1.0844109)
+
+[node name="Cafe3" parent="." unique_id=470514513 instance=ExtResource("7_5osjs")]
+position = Vector2(-608, 0)
+scale = Vector2(0.9550472, 1.0844109)
+
+[node name="Cafe4" parent="." unique_id=2036754216 instance=ExtResource("7_5osjs")]
+position = Vector2(-216.00006, -232)
+scale = Vector2(0.9550472, 1.0844109)
+
+[node name="Cafe5" parent="." unique_id=35861827 instance=ExtResource("7_5osjs")]
+position = Vector2(-928, -288)
+scale = Vector2(0.9550472, 1.0844109)
+
+[node name="Cafe6" parent="." unique_id=1823473115 instance=ExtResource("7_5osjs")]
+position = Vector2(-144, 64)
+scale = Vector2(0.9550472, 1.0844109)
+
+[node name="HUD" parent="." unique_id=1798742590 instance=ExtResource("8_5x7ld")]
+
+[node name="BolaDeFuego" parent="." unique_id=939721562 instance=ExtResource("9_5lu4r")]
+light_mask = 2
+position = Vector2(-908, -663)
+scale = Vector2(0.54971373, 0.5031315)
+
+[node name="BolaDeFuego2" parent="." unique_id=1304925572 instance=ExtResource("9_5lu4r")]
+light_mask = 2
+position = Vector2(-88, -656)
+scale = Vector2(0.54971373, 0.5031315)
+
+[node name="Diavlo" parent="." unique_id=761952443 instance=ExtResource("10_a6pve")]
+light_mask = 2
+position = Vector2(-856, -176)
+scale = Vector2(0.48772237, 0.48679918)
+
+[node name="Diavlo2" parent="." unique_id=1942243746 instance=ExtResource("10_a6pve")]
+light_mask = 2
+position = Vector2(200, -16.000015)
+scale = Vector2(0.48772237, 0.48679918)
+
+[node name="Lallorona" parent="." unique_id=523607522 instance=ExtResource("11_nkg00")]
+position = Vector2(-352, 56)
+scale = Vector2(0.4942898, 0.40814018)
+
+[node name="Lallorona2" parent="." unique_id=1889368589 instance=ExtResource("11_nkg00")]
+position = Vector2(-15.9999695, -336)
+scale = Vector2(0.4942898, 0.40814018)

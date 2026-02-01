@@ -1,0 +1,114 @@
+[gd_scene format=3 uid="uid://blqmq4fwcx2dm"]
+
+[ext_resource type="Script" uid="uid://b7lituap7yy76" path="res://enemies/diavlo.gd" id="1_sxqwv"]
+[ext_resource type="Texture2D" uid="uid://jq76a846yvuf" path="res://Assets/Demonititoderpng.png" id="2_7ikr3"]
+[ext_resource type="PackedScene" uid="uid://ckq3pi4k6wols" path="res://enemies/enemy_projectile.tscn" id="2_pdhqw"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_rfn57"]
+radius = 533.3554
+
+[sub_resource type="Animation" id="Animation_nqyt7"]
+length = 0.93333334
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Diavlo/Demonititoderpng:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_dct65"]
+resource_name = "demoniobolador"
+length = 1.1333333
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Diavlo/Demonititoderpng:texture:load_path")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["res://.godot/imported/Demonititoderpng.png-c813b7f923c9bb048b46ff5e4fa760da.ctex"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Diavlo/Demonititoderpng:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [7]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Diavlo/Demonititoderpng:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(-0.06666668, 0.033333335, 0.13333334, 0.26666668, 0.4, 0.53333336, 0.6666667, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 0, 1, 2, 3]
+}
+
+[sub_resource type="Animation" id="Animation_rfn57"]
+resource_name = "movimientopre"
+
+[sub_resource type="Animation" id="Animation_272bh"]
+resource_name = "shoot"
+length = 0.73333335
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_573ma"]
+_data = {
+&"RESET": SubResource("Animation_nqyt7"),
+&"demoniobolador": SubResource("Animation_dct65"),
+&"movimientopre": SubResource("Animation_rfn57"),
+&"shoot": SubResource("Animation_272bh")
+}
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_272bh"]
+radius = 43.046486
+
+[node name="Diavlo" type="CharacterBody2D" unique_id=761952443 groups=["Octavio"]]
+position = Vector2(917, 197)
+script = ExtResource("1_sxqwv")
+escena_bala = ExtResource("2_pdhqw")
+metadata/_edit_group_ = true
+
+[node name="DetectionArea" type="Area2D" parent="." unique_id=1155793429]
+position = Vector2(0.35003662, 0.7499695)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea" unique_id=1580354028]
+position = Vector2(45.649963, 59.25003)
+shape = SubResource("CircleShape2D_rfn57")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1544324803]
+root_node = NodePath("../..")
+libraries/ = SubResource("AnimationLibrary_573ma")
+speed_scale = 0.458
+
+[node name="Demonititoderpng" type="Sprite2D" parent="." unique_id=1955007998]
+position = Vector2(50.450012, 51.250015)
+scale = Vector2(1.329, 1.445)
+texture = ExtResource("2_7ikr3")
+hframes = 7
+
+[node name="ShootTimer" type="Timer" parent="." unique_id=367975238]
+wait_time = 2.985
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1365402280]
+position = Vector2(48, 50)
+shape = SubResource("CircleShape2D_272bh")
